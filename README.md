@@ -22,9 +22,8 @@ Autres exemples:
 #00FF00;1;2 -> Place un pixel vert en X = 1 et y = 2
 
 Les modifications pour vous : 
-IMPORTANT !!
 
-- Vous DEVEZ mettre votre token d'identification et votre nom de chaîne dans myAuthTwitch.py 
+- [IMPORTANT] Vous DEVEZ mettre votre token d'identification et votre nom de chaîne dans myAuthTwitch.py 
 
 - Vous pouvez modifier les valeurs dans main.py l.l7 et l.18 pour la longueur et hauteur
 - modifier le radius du cercle de la censure main.py l.20
@@ -57,9 +56,8 @@ Other examples:
 
 
 The changes for you :
-ESSENTIAL !
 
-- You MUST put your login token and your channel name in myAuthTwitch.py 
+- [ESSENTIAL] You MUST put your login token and your channel name in myAuthTwitch.py 
 
 - You can modify the values in main.py l.l7 and l.18 for the length and height
 - change the radius of the censor circle main.py l.20
