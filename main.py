@@ -1,13 +1,13 @@
-# n'oubliez pas d'installer toutes les librairies que vous n'avez pas ! pip install [nom_de_la_librairie]
 import asyncio
 import time
 import pygame
-import myAuthTwitch
-from twitchio.ext import commands
 import pyaudio
-import numpy as np
 import os
-import re
+from config import *
+from pixel import Pixel
+from twitch_bot import TwitchBot
+from audio import play_sound, freq_from_pixel
+from display import check_pixel_message_format, display_pixel, process_events
 
 
 # Authentication and channel configuration
@@ -28,54 +28,8 @@ num_channels = 1
 audio_format = pyaudio.paFloat32
 
 
-class Pixel:
-    def __init__(self, red, green, blue, x, y):
-        self.red = red
-        self.green = green
-        self.blue = blue
-        self.x = min(max(x, 0), length)
-        self.y = min(max(y, 0), height)
-
-
-class TwitchBot(commands.Bot):
-    def __init__(self, screen):
-            self.screen = screen
-            super().__init__(token=token, prefix='!', initial_channels=[channel_name])
-
-    async def event_ready(self):
-            print(f'Logged in as | {self.nick} id : {self.user_id}')
-
-    async def event_message(self, message):
-            if message.echo:
-                return
-            asyncio.create_task(process_messages(message.content, self.screen))
-            await self.handle_commands(message)
-
-    @commands.command()
-        async def pixel(self, ctx: commands.Context):
-            await ctx.send("Ex: #FFFFFF;11;17 -> color_hex;x position;y position"
-                           " 1 message : 1 pixel ; x0 y0 = top left pixel")
-
-
 async def get_twitch_chat_messages(bot):
     await bot.start()
-
-
-def freq_from_pixel(pixel):
-    color_sum = pixel.red + pixel.green + pixel.blue
-    note_index = round((color_sum / 765) * 39)
-    return (2 ** ((note_index+69 - 81) / 12)) * 440
-
-
-async def play_sound(pixel):
-    duration = 0.5
-    samples = (np.sin(2*np.pi*np.arange(sample_rate*duration)*freq_from_pixel(pixel)/sample_rate)).astype(np.float32)
-    await asyncio.sleep(0)
-    stream = p.open(format=audio_format, channels=num_channels, rate=sample_rate, output=True)
-    stream.write(volume*samples)
-    stream.close()
-    await asyncio.sleep(0)
-
 
 async def pixel_from_message(match):
     color, x, y = match.group(0).split(';')
@@ -83,36 +37,12 @@ async def pixel_from_message(match):
     x, y = int(x), int(y)
     return Pixel(red, green, blue, x, y)
 
-
-def check_pixel_message_format(message):
-    pattern = r'^#[0-9A-Fa-f]{{6}};([1-9]|[1-5]\d|6[0-4]\d|65[0-4]);([1-9]|[1-2]\d|3[0-5]\d|{height})$'.format(
-        height=height-1, length=length-1)
-    return re.match(pattern, message)
-
-
 async def process_messages(message, screen):
     match = check_pixel_message_format(message)
     if match is not None:
         pixel = await pixel_from_message(match)
         asyncio.create_task(play_sound(pixel))
         await display_pixel(pixel, screen)
-
-
-async def display_pixel(pixel, screen):
-    screen.set_at((pixel.x, pixel.y), (pixel.red, pixel.green, pixel.blue))
-    pygame.display.update()
-    await asyncio.sleep(0)
-
-
-def process_events(screen):
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            return True
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            pygame.draw.circle(screen, (255, 255, 255), pygame.mouse.get_pos(), censor_radius)
-            pygame.display.update()
-    return False
-
 
 async def game_loop(bot, screen):
     frame_time = 1 / fps
