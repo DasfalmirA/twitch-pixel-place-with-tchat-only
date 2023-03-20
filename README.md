@@ -1,6 +1,7 @@
 # twitch-pixel-place-with-tchat-only
-[FR]
 
+[FR]
+-------------------------------------
 Programme qui permet d'avoir une fenêtre de 640 x 360 
 Qui utilise une connexion avec twitchio pour récupérer les messages du tchat pour pouvoir les traiter et ainsi poser un pixel sur l'écran.
 Pour la censure vous pouvez faire un click droit sur la fenêtre pour créer un cercle blanc.
@@ -32,6 +33,7 @@ IMPORTANT !!
 - vous pouvez modifier les fonctions dans main.py : loadsave() en l.134 et save_and_quit() en l.149 pour modifier le chemin et nom des fichiers de sauvegardes de l'image
 
 [EN]
+-------------------------------------
 Program that allows to have a 640 x 360 window
 Which uses a connection with twitchio to get the messages from the chat to be able to process them and thus put a pixel on the screen.
 For censorship you can right click on the window to create a white circle.
