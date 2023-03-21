@@ -43,3 +43,13 @@ The changes for you :
 - you can write a different text to explain the program in twitch_bot l.26, the sentences in inverted commas.
 
 - you can modify the functions in main.py : loadsave() and save_and_quit() to modify the path and name of the files to save the image (l.29 , l.30, l.33, l.43)
+
+
+```bash
+python.exe -m pip install --upgrade pip
+
+pip install pygame
+pip install twitchio
+pip install pyaudio
+pip install numpy
+```
