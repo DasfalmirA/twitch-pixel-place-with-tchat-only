@@ -35,3 +35,12 @@ Les modifications pour vous :
 - vous pouvez enlever la partie audio en mettant en commentaire la l.26 du process_messages.py, (utilisez un # devant la ligne)
 - vous pouvez écrire un texte différent pour expliquer le programme dans twitch_bot.py , les phrases entre guillemets.
 - vous pouvez modifier les fonctions dans main.py : loadsave() et save_and_quit() pour modifier le chemin et nom des fichiers de sauvegardes de l'image (l.29 , l.30, l.33, l.43)
+
+```bash
+python.exe -m pip install --upgrade pip
+
+pip install pygame
+pip install twitchio
+pip install pyaudio
+pip install numpy
+```
