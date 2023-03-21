@@ -29,10 +29,9 @@ Autres exemples:
 
 Les modifications pour vous :
 
-- [IMPORTANT] Vous DEVEZ mettre votre token d'identification et votre nom de chaîne dans myAuthTwitch.py
+- [IMPORTANT] Vous DEVEZ mettre votre token d'identification et votre nom de chaîne dans config.py
 
-- Vous pouvez modifier les valeurs dans main.py l.l7 et l.18 pour la longueur et hauteur
-- modifier le radius du cercle de la censure main.py l.20
-- vous pouvez enlever la partie audio en mettant en commentaire la l.97 du main.py, (utilisez un # devant la ligne)
-- vous pouvez écrire un texte différent pour expliquer le programme en l.55 , les phrases entre guillemets.
-- vous pouvez modifier les fonctions dans main.py : loadsave() en l.134 et save_and_quit() en l.149 pour modifier le chemin et nom des fichiers de sauvegardes de l'image
+- Vous pouvez modifier les valeurs dans config.py pour la longueur et hauteur, et modifier le radius du cercle de la censure main.py l.20
+- vous pouvez enlever la partie audio en mettant en commentaire la l.26 du process_messages.py, (utilisez un # devant la ligne)
+- vous pouvez écrire un texte différent pour expliquer le programme dans twitch_bot.py , les phrases entre guillemets.
+- vous pouvez modifier les fonctions dans main.py : loadsave() et save_and_quit() pour modifier le chemin et nom des fichiers de sauvegardes de l'image (l.29 , l.30, l.33, l.43)
