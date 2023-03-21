@@ -33,7 +33,7 @@ Other examples:
 
 The changes for you :
 
-- [ESSENTIAL] You MUST put your login token and your channel name in myAuthTwitch.py 
+- [ESSENTIAL] You MUST put your login token and your channel name in config.py 
 
 
 - You can modify the values in config.py for : the length and height ; change the radius of the censor circle
