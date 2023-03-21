@@ -29,7 +29,7 @@ Autres exemples:
 
 Les modifications pour vous :
 
-- [IMPORTANT] Vous DEVEZ mettre votre token d'identification et votre nom de chaîne dans config.py
+- [IMPORTANT] Vous DEVEZ mettre votre `token d'identification` et votre `nom de chaîne` dans `config.py`
 
 - Vous pouvez modifier les valeurs dans config.py pour la longueur et hauteur, et modifier le radius du cercle de la censure main.py l.20
 - vous pouvez enlever la partie audio en mettant en commentaire la l.26 du process_messages.py, (utilisez un # devant la ligne)
