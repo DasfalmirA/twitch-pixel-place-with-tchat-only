@@ -1,4 +1,8 @@
 from twitchio.ext import commands
+from config import token, channel_name
+import asyncio
+from process_messages import process_messages
+
 
 class TwitchBot(commands.Bot):
     def __init__(self, screen):

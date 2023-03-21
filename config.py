@@ -10,6 +10,3 @@ censor_radius = 15
 
 # PyAudio configuration
 volume = 0.5
-sample_rate = 44100
-num_channels = 1
-audio_format = pyaudio.paFloat32
