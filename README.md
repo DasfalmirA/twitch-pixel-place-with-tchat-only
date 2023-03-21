@@ -35,8 +35,11 @@ The changes for you :
 
 - [ESSENTIAL] You MUST put your login token and your channel name in myAuthTwitch.py 
 
-- You can modify the values in main.py l.l7 and l.18 for the length and height
-- change the radius of the censor circle main.py l.20
-- you can remove the audio part by commenting out the l.97 of main.py, (use a # in front of the line)
-- you can write a different text to explain the program in l.55, the sentences in inverted commas.
-- you can modify the functions in main.py : loadsave() in l.134 and save_and_quit() in l.149 to modify the path and name of the files to save the image
+
+- You can modify the values in config.py for : the length and height ; change the radius of the censor circle
+
+- you can remove the audio part by commenting out the l.26 of process_messages.py, (use a # in front of the line)
+
+- you can write a different text to explain the program in twitch_bot l.26, the sentences in inverted commas.
+
+- you can modify the functions in main.py : loadsave() and save_and_quit() to modify the path and name of the files to save the image (l.29 , l.30, l.33, l.43)
