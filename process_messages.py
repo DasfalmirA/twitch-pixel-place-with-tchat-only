@@ -1,7 +1,7 @@
 from audio import play_sound, freq_from_pixel
 from pixel import Pixel
 from display import display_pixel
-from config import height, length
+from config import height, length, no_sound
 import asyncio
 import re
 
@@ -23,5 +23,6 @@ async def process_messages(message, screen):
     match = check_pixel_message_format(message)
     if match is not None:
         pixel = await pixel_from_message(match)
-        asyncio.create_task(play_sound(pixel))
+        if not no_sound:
+            asyncio.create_task(play_sound(pixel))
         await display_pixel(pixel, screen)

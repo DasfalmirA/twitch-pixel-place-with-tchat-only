@@ -1,5 +1,5 @@
 from twitchio.ext import commands
-from config import token, channel_name
+from config import token, channel_name, only_sub
 import asyncio
 from process_messages import process_messages
 
@@ -17,7 +17,8 @@ class TwitchBot(commands.Bot):
     async def event_message(self, message):
         if message.echo:
             return
-        asyncio.create_task(process_messages(message.content, self.screen))
+        if not only_sub or message.author.is_subscriber:
+            asyncio.create_task(process_messages(message.content, self.screen))
         await self.handle_commands(message)
 
     # Command for explaining pixel usage
